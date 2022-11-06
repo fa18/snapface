@@ -1,14 +1,14 @@
 
 <div class="face-snap-card" [ngClass]="{ snapped : valueButton !== '👍'}">
     <h1>{{ facesnap.title }}</h1>
-    créé le {{ facesnap.createdDate }} 
+    créé le {{ facesnap.createdDate | date: 'medium' }} 
     <p *ngIf="facesnap.location"> à {{ facesnap.location }}</p>
     
-    <p>{{ facesnap.description }}</p>
+    <p>{{ facesnap.description  }}</p>
     
     <img [src]="facesnap.imageUrl" [alt]="facesnap.title">
     <button class="off" id="likeButton" (click)="onLike()" value="false">{{ valueButton }}</button>
-    <span [ngStyle]="{ color: 'rgb(0,'+facesnap.likes*20+',0)'}">{{ facesnap.likes }} likes</span>
+    <span [ngStyle]="{ color: 'rgb(0,'+facesnap.likes*20+',0)'}">{{ facesnap.likes | number }} likes</span>
 </div>
 
 
